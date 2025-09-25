@@ -21,6 +21,7 @@ import java.io.InputStreamReader
 class MainActivity : ComponentActivity() {
 
     private val weekdayText = mutableStateOf("")
+    private val tuesdayText = mutableStateOf("")
     private val saturdayText = mutableStateOf("")
     private val sundayText = mutableStateOf("")
 
@@ -33,6 +34,10 @@ class MainActivity : ComponentActivity() {
 
         val weekdayLauncher = registerForActivityResult(ActivityResultContracts.GetContent()) { uri ->
             uri?.let { weekdayText.value = readTextFromUri(it) }
+        }
+
+        val tuesdayLauncher = registerForActivityResult(ActivityResultContracts.GetContent()) { uri ->
+            uri?.let { tuesdayText.value = readTextFromUri(it) }
         }
 
         val saturdayLauncher = registerForActivityResult(ActivityResultContracts.GetContent()) { uri ->
@@ -63,6 +68,10 @@ class MainActivity : ComponentActivity() {
                     ) {
                         Button(onClick = { weekdayLauncher.launch("text/*") }, modifier = Modifier.fillMaxWidth()) {
                             Text("Upload Weekday Planner")
+                        }
+                        Spacer(modifier = Modifier.height(8.dp))
+                        Button(onClick = { tuesdayLauncher.launch("text/*") }, modifier = Modifier.fillMaxWidth()) {
+                            Text("Upload Tuesday Planner")
                         }
                         Spacer(modifier = Modifier.height(8.dp))
                         Button(onClick = { saturdayLauncher.launch("text/*") }, modifier = Modifier.fillMaxWidth()) {
@@ -96,6 +105,7 @@ class MainActivity : ComponentActivity() {
     private fun enqueueAllAlarms() {
         alarmQueue.clear()
         createAlarms("weekday", weekdayText.value)
+        createAlarms("tuesday", weekdayText.value)
         createAlarms("saturday", saturdayText.value)
         createAlarms("sunday", sundayText.value)
 
@@ -114,10 +124,12 @@ class MainActivity : ComponentActivity() {
         val daysOfWeek = when (type) {
             "weekday" -> listOf(
                 java.util.Calendar.MONDAY,
-                java.util.Calendar.TUESDAY,
                 java.util.Calendar.WEDNESDAY,
                 java.util.Calendar.THURSDAY,
                 java.util.Calendar.FRIDAY
+            )
+            "tuesday" -> listOf(
+                java.util.Calendar.TUESDAY,
             )
             "saturday" -> listOf(java.util.Calendar.SATURDAY)
             "sunday" -> listOf(java.util.Calendar.SUNDAY)
