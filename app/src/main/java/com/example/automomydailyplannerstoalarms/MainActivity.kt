@@ -105,7 +105,7 @@ class MainActivity : ComponentActivity() {
     private fun enqueueAllAlarms() {
         alarmQueue.clear()
         createAlarms("weekday", weekdayText.value)
-        createAlarms("tuesday", weekdayText.value)
+        createAlarms("tuesday", tuesdayText.value)
         createAlarms("saturday", saturdayText.value)
         createAlarms("sunday", sundayText.value)
 
