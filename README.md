@@ -17,7 +17,7 @@ RoutineAlarm is a small Android utility app intended for personal use that reads
 > [!important]
 > This project is typically used locally/unpublished on your phone as a personal tool.
 
-> [!info] 
+> [!note] 
 > Batch alarm creation isn't supported, so simply press the "Back" button after a alarm is created to navigate back to the application, and repeat until all alarms are successfully created.
 
 ---
