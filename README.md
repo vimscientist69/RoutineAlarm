@@ -8,7 +8,8 @@
 
 ---
 
-...image of application...
+<img width="500" height="1600" alt="Screenshot_20251215-085324" src="https://github.com/user-attachments/assets/e2484bc6-35ea-493c-a372-28a25c8bdd45" />
+<img width="500" height="1600" alt="Screenshot_20251215-085402" src="https://github.com/user-attachments/assets/f705522b-04fa-4123-a830-621d6b95afbc" />
 
 ---
 RoutineAlarm is a small Android utility app intended for personal use that reads daily routine files in Markdown (for example from Obsidian) and creates corresponding alarms in the system Clock app so you get notified when each timebox starts. It speeds up creating multiple alarms compared to creating them one-by-one in the Clock app manually.
